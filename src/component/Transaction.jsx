@@ -6,10 +6,11 @@ function Transaction ({trans}) {
         <div className="transaction">
             <div>{trans.date}</div>
             <div><Link to={`/transaction/${trans.id}`}>{trans.category}</Link></div>
-            <div>{trans.amount}</div>
+            <div>{trans.type === "Expenses" ? "-" : ""}{trans.amount}</div>
             <hr />
         </div>
     )
+    
 }
 
 export default Transaction;

@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom"
+
 function Home() {
     return (
         <div className="main">
-            <h1>Bank Account Total:</h1>
+            <Link to="/transaction"><h3>Transaction</h3></Link>
         </div>
     )
 }

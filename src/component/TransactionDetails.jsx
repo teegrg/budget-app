@@ -10,6 +10,7 @@ function TransactionDetails() {
     const navigate = useNavigate();
 
     useEffect(() => {
+       // console.log("ID:", id);
         axios
         .get(`${API}/transaction/${id}`)
         .then((res) => {

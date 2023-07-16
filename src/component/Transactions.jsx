@@ -5,8 +5,10 @@ import Transaction from "./Transaction";
 const API = process.env.REACT_APP_API_URL
 function Transactions() {
     const [transaction, setTransaction] = useState([]);
+    const [total, setTotal] = useState(null)
    // console.log(process.env)
    //console.log(API);
+    
     
     useEffect(() => {
         axios.get(`${API}/transaction`)
@@ -14,8 +16,26 @@ function Transactions() {
         .catch((e) => console.log(e))
     },[])
 
+    function addTotal() {
+        let sum = 0;
+        transaction.forEach((transaction) => {
+            if (transaction.type === "Income") {
+                sum += transaction.amount;
+            } else if (transaction.type === "Expenses") {
+                sum -= transaction.amount;
+            }
+        });
+        setTotal(sum);
+    }
+
+    useEffect(() => {
+        addTotal();
+    }, [transaction]);
+
+
     return (
         <div className="tranasactions">
+            <h1>Bank Account Total: $ {total}</h1>
             {transaction.map((trans) => {
             return    <Transaction 
                     key={trans.id} 
