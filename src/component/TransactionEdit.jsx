@@ -40,6 +40,16 @@ function TransactionEdit() {
         .catch((e) => console.log(e))
     };
 
+    const handleSelectChange = (event) => {
+        const selectedValue =
+         event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1);
+
+        setTransaction({
+        ...transaction,
+        type: selectedValue,
+        });
+    }
+
     useEffect(() => {
         axios
         .get(`${API}/transaction/${id}`)
@@ -97,6 +107,17 @@ function TransactionEdit() {
                     placeholder="category"
                     required
                  />
+                <label htmlFor="category">Type:</label>
+                <select
+                    id="type"
+                    value={transaction.type}
+                    onChange={handleSelectChange}
+                    required
+                 >
+                    <option value="">Select a type</option>
+                    <option value="Income">Income</option>
+                    <option value="Expenses">Expenses</option>
+                </select>
                  <br />
                  <input type="submit" />
             </form>

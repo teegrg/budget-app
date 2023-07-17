@@ -22,12 +22,13 @@ function TransactionDetails() {
 
     return (
         <div className="details">
-           <h3>{transaction.id}</h3> 
-           <h3>{transaction.item_name}</h3>
-           <h3>{transaction.amount}</h3>
-           <h3>{transaction.date}</h3>
-           <h3>{transaction.from}</h3>
-           <h3>{transaction.category}</h3>
+           <p>Id:{transaction.id}</p> 
+           <p>Name:{transaction.item_name}</p>
+           <p>Amount:{transaction.amount}</p>
+           <p>Date:{transaction.date}</p>
+           <p>From:{transaction.from}</p>
+           <p>Category:{transaction.category}</p>
+           <p>Type:{transaction.type}</p>
            <div className="showNavigation">
             <button><Link to={`/transaction/${id}/edit`} className="link">Edit</Link></button>
             <button><Link to= {`/transaction`} className="link">Back</Link></button>

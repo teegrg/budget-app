@@ -39,7 +39,7 @@ function Transactions() {
                 <table>
                     <thead>
                         <tr>
-                            <th>Bank Account Total: $ {total}</th>
+                            <th><h3>Bank Account Total:  <span>$ {total}</span></h3></th>
                         </tr>
                     </thead> 
                     <tbody>{transaction.map((trans, index) => 

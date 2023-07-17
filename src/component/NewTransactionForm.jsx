@@ -32,6 +32,16 @@ function NewTransactionForm() {
         setNewTransaction({...newTransaction, [event.target.id] : event.target.value})
     }
 
+    const handleSelectChange = (event) => {
+        const selectedValue =
+         event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1);
+
+        setNewTransaction({
+        ...newTransaction,
+        type: selectedValue,
+        });
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         newTrans();
@@ -84,6 +94,18 @@ function NewTransactionForm() {
                     placeholder="category"
                     required
                  />
+                 <label htmlFor="category">Type:</label>
+                <select
+                    id="type"
+                    value={newTransaction.type}
+                    onChange={handleSelectChange}
+                    required
+                 >
+                    <option value="">Select a type</option>
+                    <option value="Income">Income</option>
+                    <option value="Expenses">Expenses</option>
+                </select>
+                <br />
                  <button className="btnNewForm">CREATE A NEW ITEM</button>
             </form>
         </div>
