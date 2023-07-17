@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+const { v4: uuidv4 } = require("uuid");
 
 const API = process.env.REACT_APP_API_URL
 
@@ -10,6 +11,7 @@ function NewTransactionForm() {
     const navigate = useNavigate()
 
     const [newTransaction, setNewTransaction] = useState({
+        id: uuidv4(),
         item_name : "",
         amount : 0,
         date : "",

@@ -9,7 +9,6 @@ function TransactionEdit() {
     const navigate = useNavigate();
 
     const [transaction, setTransaction] = useState({
-        id : 0,
         item_name : "",
         amount : 0,
         date : "",
@@ -18,8 +17,11 @@ function TransactionEdit() {
     });
 
     const updateTransaction = () => {
+        // console.log('API:', API);
+        // console.log('id:', id);
+        // console.log('transaction:', transaction);
         axios
-        .put((`${API}/transaction/${id}`, transaction))
+        .put(`${API}/transaction/${id}`, transaction)
         .then((res) => {
             setTransaction(res.data); 
              navigate(`/transaction/${id}`);
@@ -29,11 +31,6 @@ function TransactionEdit() {
 
     const handleTextChange = (event) => {
         setTransaction({...transaction, [event.target.id] : event.target.value })
-    }
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        updateTransaction();
     }
 
     const handleDelete = () => {
@@ -50,6 +47,10 @@ function TransactionEdit() {
         .catch((e) => console.log(e))
     },[id]);
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        updateTransaction();
+    }
     return (    
         <div className="edit">
             <form onSubmit={handleSubmit}>
@@ -98,10 +99,12 @@ function TransactionEdit() {
                  />
                  <input type="submit" />
             </form>
-            <Link to={`/transaction/${id}`}>
-                <button>Cancel</button>
-            </Link>
-            <button onClick={handleDelete}>Delete</button>
+            <div className="showNavigation">
+                <Link to={`/transaction/${id}`}>
+                    <button>Cancel</button>
+                </Link>
+                <button onClick={handleDelete}>Delete</button>
+            </div>    
         </div>
 
     )

@@ -35,14 +35,23 @@ function Transactions() {
 
     return (
         <div className="tranasactions">
-            <h1>Bank Account Total: $ {total}</h1>
-            {transaction.map((trans) => {
-            return    <Transaction 
-                    key={trans.id} 
-                    trans ={trans}/>
-
-                })
-            }
+            <section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bank Account Total: $ {total}</th>
+                        </tr>
+                    </thead> 
+                    <tbody>{transaction.map((trans, index) => 
+                        <Transaction 
+                            key={trans.id} 
+                            trans ={trans}
+                            index={index}
+                        />
+                        )}
+                    </tbody>
+                </table>
+            </section>       
         </div>
     )
 }

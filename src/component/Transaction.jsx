@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 
-function Transaction ({trans}) {
-    
+function Transaction ({trans, index}) {
+   // console.log(trans.id)
     return (
-        <div className="transaction">
-            <div>{trans.date}</div>
-            <div><Link to={`/transaction/${trans.id}`}>{trans.category}</Link></div>
-            <div>{trans.type === "Expenses" ? "-" : ""}{trans.amount}</div>
-            <hr />
-        </div>
+        <tr className="transaction">
+            <td>{trans.date}</td>
+            <td><Link to={`/transaction/${index}`}>{trans.category}</Link></td>
+            <td>{trans.type === "Expenses" ? "-" : ""}{trans.amount}</td>
+           
+        </tr>
     )
     
 }
