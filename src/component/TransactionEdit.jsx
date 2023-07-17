@@ -97,9 +97,11 @@ function TransactionEdit() {
                     placeholder="category"
                     required
                  />
+                 <br />
                  <input type="submit" />
             </form>
-            <div className="showNavigation">
+            <br />
+            <div className="showNavigationEdit">
                 <Link to={`/transaction/${id}`}>
                     <button>Cancel</button>
                 </Link>

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"
 
 function Home() {
     return (
-        <div className="main">
-            <Link to="/transaction"><h3>Transaction</h3></Link>
+        <div >
+            <Link to="/transaction" className="main"><h3>Go To Transaction</h3></Link>
         </div>
     )
 }

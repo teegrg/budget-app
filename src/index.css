@@ -8,34 +8,6 @@
   margin-bottom: 1em;
 }
 
-
-table {
-  width: 75%;
-  margin: auto;
-}
-
-td {
-  text-align: center;
-}
-
-
-tbody td:not(td:first-of-type):hover {
-  transform: scale(1.05);
-  opacity: 0.9;
-}
-
-tbody tr:nth-child(even) {
-  background: #eafdf2;
-}
-
-/* 
-.transaction {
-  border: 1px solid black;
-  border-radius: 5px;
-  box-shadow: 0px 5px rgb(203, 198, 193);
-} */
-
-
 .New form {
   margin: auto;
   width: 95%;
@@ -55,9 +27,10 @@ input[type="submit"] {
   
 }
 
-.showNavigation {
+.showNavigationEdit {
   display: flex;
-  justify-content: space-around;
+  justify-content:center;
+  padding-left: 25%;
   width: 50%;
   
 }
@@ -76,8 +49,82 @@ input[type="submit"] {
 
 .link{
   text-decoration: none;
+  color: #787d79;
 }
 
 button {
   text-decoration: none;
+}
+
+.center {
+  display: flex;
+justify-content: center;
+}
+
+.btnNewForm {
+ margin-top: 25px;
+  margin-left: 40%;
+}
+.btnNewForm:hover {
+  cursor: pointer;
+  transform: scale(1.25);
+  opacity: 0.9;
+  background-color: #beeec9;
+}
+
+
+.main {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  color: #4e524f;
+  border: 1px solid rgb(192, 190, 190);
+  background-color: #eafdf2;
+  border-radius: 5px;
+  width: 50%;
+  margin-left: 25%;
+}
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px; 
+  border-bottom: 1px solid #ccc; 
+}
+
+.cell {
+  flex: 1; 
+  text-align: center; 
+  padding: 5px; 
+}
+
+.cell.date {
+  flex: 2; 
+}
+
+.cell.category {
+  flex: 4; 
+}
+
+.cell.amount {
+  flex: 2; 
+}
+
+
+.transaction:last-child {
+  border-bottom: none; 
+}
+
+
+table {
+  width: 75%;
+  margin: auto;
+}
+
+td {
+  text-align: center;
+}
+
+.linkTran {
+  color: #6fa2be;
 }
